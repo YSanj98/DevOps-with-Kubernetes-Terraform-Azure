@@ -1,0 +1,24 @@
+## IDE and editor folders
+**/.idea
+**/.vscode
+
+## Terraform state and config
+**/.terraform
+**/.terraform.lock*
+**/terraform.tfstate
+**/terraform.tfstate.backup
+
+## Sensitive files
+**/*.pem
+**/*.key
+
+## Text files (if any)
+**/*.txt
+
+## Project-specific ignoresss
+aks-k8s-deployment/scripts/*.sh
+aks-k8s-deployment/scripts/*.log
+aks-k8s-deployment/manifests/*.yaml
+terraform/infrastructure/azure/*.tfstate
+terraform/infrastructure/azure/*.backup
+terraform/modules/**/README.md
