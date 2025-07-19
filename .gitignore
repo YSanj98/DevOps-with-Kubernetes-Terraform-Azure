@@ -18,7 +18,6 @@
 ## Project-specific ignoresss
 aks-k8s-deployment/scripts/*.sh
 aks-k8s-deployment/scripts/*.log
-aks-k8s-deployment/manifests/*.yaml
 terraform/infrastructure/azure/*.tfstate
 terraform/infrastructure/azure/*.backup
 terraform/modules/**/README.md
