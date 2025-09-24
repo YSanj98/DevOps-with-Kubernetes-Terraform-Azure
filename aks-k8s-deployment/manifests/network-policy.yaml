@@ -8,24 +8,33 @@ spec:
     matchLabels:
       app: wordpress
   policyTypes:
-  - Ingress
-  - Egress
+    - Ingress
+    - Egress
+
+  # Allow incoming traffic
   ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: mysql
+    - from:
+        - podSelector:
+            matchLabels:
+              app: mysql
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+        - podSelector: {}
+
+  # Allow outgoing traffic
   egress:
-  - to:
-    - podSelector:
-        matchLabels:
-          app: mysql
-  - to:
-    - podSelector:
-        matchLabels:
-          app: wordpress
-    ports:
-    - protocol: TCP
-      port: 80
-    - protocol: TCP
-      port: 443
+    - to:
+        - podSelector:
+            matchLabels:
+              app: mysql
+    - to:
+        - podSelector:
+            matchLabels:
+              app: wordpress
+      ports:
+        - protocol: TCP
+          port: 80
+        - protocol: TCP
+          port: 443
